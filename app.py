@@ -34,14 +34,14 @@ df_new = pd.DataFrame({'cost': [cost], 'num_cuisines': [num_cuisines],
 		     })
 
 # Load the transformer
-transformer = pkl.load(open('trans.pkl', 'rb'))
-#transformer = joblib.load(open('trans.joblib', 'rb'))
+#transformer = pkl.load(open('trans.pkl', 'rb'))
+transformer = joblib.load(open('trans.joblib', 'rb'))
 # Apply the transformer on the inputs
 X = transformer.transform(df_new)
 
 # Load the model
-model = pkl.load(open('f_clf.pkl', 'rb'))
-#model = joblib.load(open('f_clf.joblib', 'rb'))
+#model = pkl.load(open('f_clf.pkl', 'rb'))
+model = joblib.load(open('f_clf.joblib', 'rb'))
 # Predict the output
 predict = model.predict(X)
 prop = model.predict_proba(X)[0][1] * 100
