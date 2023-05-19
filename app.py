@@ -8,7 +8,6 @@ location_lst = joblib.load('location.sav')
 city_lst = joblib.load('city.sav')
 rest_type_lst = joblib.load('rest_type.sav')
 
-
 # Take inputs from user
 st.image('img.jpg')
 cost = st.slider("Cost", 40, 6000)
@@ -36,13 +35,13 @@ df_new = pd.DataFrame({'cost': [cost], 'num_cuisines': [num_cuisines],
 
 # Load the transformer
 transformer = pkl.load(open('trans.pkl', 'rb'))
-
+#transformer = joblib.load(open('trans.joblib', 'rb'))
 # Apply the transformer on the inputs
 X = transformer.transform(df_new)
 
 # Load the model
 model = pkl.load(open('f_clf.pkl', 'rb'))
-
+#model = joblib.load(open('f_clf.joblib', 'rb'))
 # Predict the output
 predict = model.predict(X)
 prop = model.predict_proba(X)[0][1] * 100
