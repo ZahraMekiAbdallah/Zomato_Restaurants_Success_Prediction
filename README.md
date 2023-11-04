@@ -1,3 +1,3 @@
-# Zomato Restaurants Data Science Project
+# Zomato Restaurants Success Prodiction
 
 https://zahramekiabdallah-zomato.streamlit.app/
